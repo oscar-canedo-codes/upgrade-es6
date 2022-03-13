@@ -367,3 +367,31 @@ const totalScore = exams.reduce(
   const averageScore = totalScore / exams.length;
   
   console.log(averageScore);
+
+// Iteración #8: Bonus
+
+// 8.1 Dado el siguiente javascript filtra los videojuegos por genre = 'RPG' usando .filter() y usa .reduce() para conseguir la media de sus .score. La función .find() también podría ayudarte para el contrar el genero 'RPG' en el array .genre.
+
+const videogames = [
+    {name: 'Final Fantasy VII', genres: ['RPG'], score: 9.5},
+    {name: 'Assasins Creed Valhala', genres: ['Aventura', 'RPG'], score: 4.5},
+    {name: 'The last of Us 2', genres: ['Acción', 'Aventura'], score: 9.8},
+    {name: 'Super Mario Bros', genres: ['Plataforma'], score: 8.5},
+    {name: 'Genshin Impact', genres: ['RPG', 'Aventura'], score: 7.5},
+    {name: 'Legend of Zelda: Breath of the wild', genres: ['RPG', 'La cosa más puto bonita que he visto nunca'], score: 10},
+]
+
+/* filter() method search through all the elements while find() method search through all the child elements only */
+
+const rpgGames = videogames.filter(
+    (videogame) => !!videogame.genres.find((genre) => genre === "RPG")
+  );
+
+  const totalScoreRpgGames = rpgGames.reduce(
+    (accumulator, videogame) => accumulator + videogame.score,
+    0
+  );
+  
+  const average = totalScoreRpgGames / rpgGames.length;
+
+  console.log(average);
